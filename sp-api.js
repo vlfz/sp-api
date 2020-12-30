@@ -16,7 +16,7 @@ function send(params, postData) {
 	});
 }
 
-function request(params) {
+function requestAPI(params) {
 	params.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 	let postData;
     if(params.body) {
@@ -45,30 +45,30 @@ module.exports = function({ project_id, token, response_key }) {
     };
 
     this.test = () =>
-		request(options({ action: 'test' }))
+		requestAPI(options({ action: 'test' }))
             .then((r) => r, (e) => { throw e; });
             
     this.permissionTest = (license_key = null) =>
-		request(options({ action: 'permission_test', license_key }))
+		requestAPI(options({ action: 'permission_test', license_key }))
             .then((r) => r, (e) => { throw e; });
             
     this.pay = ({ spPayCode = "000000", sum = "0", transactionMessage = null }) =>
-		request(options({ action: 'pay', spPayCode, sum, transactionMessage }))
+		requestAPI(options({ action: 'pay', spPayCode, sum, transactionMessage }))
             .then((r) => r, (e) => { throw e; });
             
     this.getPermission = ({ license_key = null, permission_id = 0 }) =>
-		request(options({ action: 'get_permission', license_key, permission_id }))
+		requestAPI(options({ action: 'get_permission', license_key, permission_id }))
             .then((r) => r, (e) => { throw e; });
             
     this.getCardsInfo = (license_key = null) =>
-		request(options({ action: 'get_cards_info', license_key }))
+		requestAPI(options({ action: 'get_cards_info', license_key }))
             .then((r) => r, (e) => { throw e; });
             
     this.getUnreadNotifications = (license_key = null) =>
-		request(options({ action: 'get_unread_notifications', license_key }))
+		requestAPI(options({ action: 'get_unread_notifications', license_key }))
             .then((r) => r, (e) => { throw e; });
             
     this.markNotificationsAsRead = (license_key = null) =>
-		request(options({ action: 'mark_notifications_as_read', license_key }))
+		requestAPI(options({ action: 'mark_notifications_as_read', license_key }))
 			.then((r) => r, (e) => { throw e; });
 };
