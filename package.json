@@ -1,0 +1,13 @@
+{
+    "name": "sp-api",
+    "description": "Удобное (почти) взаимодействие с SP-API на NodeJS",
+    
+    "license": "MIT",
+    "version": "1.0.0",
+    "main": "sp-api.js",
+
+    "author": {
+        "name": "vlfz",
+        "url": "https://github.com/vlfz"
+    }
+}
